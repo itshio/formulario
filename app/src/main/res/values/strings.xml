@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">formulario</string>
+    <string name="Sexo">Sexo</string>
+    <string name="edad">Edad</string>
+    <string name="provincia">Provincia</string>
+    <string name="estudiante">Estudiante</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+
+</resources>
