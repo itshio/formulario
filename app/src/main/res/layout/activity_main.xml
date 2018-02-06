@@ -35,6 +35,7 @@
         android:layout_width="@dimen/d35"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:maxLength="2"
         android:inputType="number" />
 
     <LinearLayout

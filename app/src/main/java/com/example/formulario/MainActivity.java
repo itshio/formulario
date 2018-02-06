@@ -7,9 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         txtfinal= (TextView)findViewById(R.id.txt_final);
 
 
-        String [] provincias= {"Cadiz","Malaga","Almeria","Granada","Huelva","Sevilla","Jaen","Cordoba"};
+        String [] provincias= {" ","Cadiz","Malaga","Almeria","Granada","Huelva","Sevilla","Jaen","Cordoba"};
 
         ArrayAdapter<String> adaptadorprovincias= new ArrayAdapter<String>(this,
                 android.R.layout.simple_expandable_list_item_1,provincias);
@@ -57,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
         String apellidos= etapellido.getText().toString()+" ";
         String edad= etedad.getText().toString()+" ";
         String provincias= spprovincias.getSelectedItem().toString()+" ";
+        String estudiante="";
 
         int idradio= rgsexo.getCheckedRadioButtonId();
+
 
 
 
@@ -68,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(idradio == -1){
 
-                    btnaceptar.setEnabled(false);
 
+
+                    Toast.makeText(this,"Debes rellenar todos los campos",Toast.LENGTH_LONG).show();
 
                 }
 
@@ -77,9 +82,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }else{
 
-            txtfinal.setText(nombre+apellidos+edad+idradio+provincias);
+            if(cbestudiante.isChecked()){
+                estudiante+=cbestudiante.getText().toString()+" ";
+            }
+            
+            RadioButton radiogroup = (RadioButton)findViewById(idradio);
+            String txt_radiogroup= radiogroup.getText().toString()+(" ");
 
-            btnaceptar.setEnabled(true);
+            txtfinal.setText(nombre+apellidos+edad+txt_radiogroup+provincias+estudiante);
+
 
 
         }
